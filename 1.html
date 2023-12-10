@@ -1,91 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">		<!-- Character encoding -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">			<!-- Viewport for responsiveness -->
     <title>Homepage</title>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Audiowide"><!-- Linking to Google Font -->
 
 <style>
 
-
+		/* Global styles */
 * {
-  box-sizing: border-box;
+  box-sizing: border-box;	/* Box sizing for all elements */
 }
 
-body {font-family: "Audiowide", sans-serif;}
+body {
+	font-family: "Audiowide", sans-serif;
+}
 
-
+		/* Styles for the background video */
 #myVideo {
-  position: fixed;
-  right: 0;
-  bottom: 0;
-  min-width: 100%; 
-  min-height: 100%;
+   position: fixed; 	/* Fixed positioning */
+   right: 0; 			/* Positioned to the right */
+   bottom: 0;			/* Positioned at the bottom */
+   min-width: 100%; 	/* Minimum width of 100% */
+   min-height: 100%; 	/* Minimum height of 100% */
 }
 
+		/* Styles for the 'Mind Squares' text */
 .text {
-  font-size: 5vw; 
-  font-weight: bold;
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  
+  font-size: 5vw;              		/* Sets the font size to 5% of the viewport width */
+  font-weight: bold;            	/* Makes the text bold */
+  margin: 0 auto;               	/* Centers the element horizontally by setting equal margins on the left and right (auto) */
+  text-align: center;           	/* Aligns the text content to the center */
+  position: absolute;          		/* Positions the element absolutely */
+  top: 50%;                     	/* Positions the top edge of the element at 50% of the height of its containing element */
+  left: 50%;                    	/* Positions the left edge of the element at 50% of the width of its containing element */
+  transform: translate(-50%, -50%); /* Moves the element 50% of its own width to the left and 50% of its own height upwards, effectively centering it both vertically and horizontally */
+}
+		
+		 /* Styles for the 'Mind Squares' button */
+.mindsq {
+    background-color: white;   
+    color: black;              
+    padding: 5px;              /* Adds 5 pixels of padding inside the element */
+    width: 75%;                /* Sets the width of the element to 75% of its container */
+    text-decoration: none;     /* Removes any text decoration (e.g., underline) */
+    border-radius: 5px;        
+    display: inline-block;     /* Makes the element an inline block,These elements do not start on a new line,They only take up the necessary width to contain their content */
 }
 
-.mindsq:hover {
-            box-shadow: 0 0 10px #988558, 0 0 20px #988558, 0 0 30px #988558;
-        }
-		
-	.mindsq {
-            background-color: white;
-			color: black;
-			padding:	5px;
-			width: 75%;
-            text-decoration: none;
-            border-radius: 5px;
-            display: inline-block;
-            transition: box-shadow 0.3s;
-
-        }
 		
 body { 
-background:#333; 
+	background:#333; 
 }
 
-.loader { 
-  width:400px; 
-  margin:0 auto;
-  border-radius:10px;
-  border:4px solid transparent;
-  position:relative;
-  padding:1px;
-}
-.loader:before {
-  content:'';
-  border:1px solid #fff; 
-  border-radius:10px;
-  position:absolute;
-  top:-4px; 
-  right:-4px; 
-  bottom:-4px; 
-  left:-4px;
-}
-.loader .loaderBar { 
-  position:absolute;
-  border-radius:10px;
-  top:0;
-  right:100%;
-  bottom:0;
-  left:0;
-  background:#fff; 
-  width:0;
-  animation:loadingbar 2s linear infinite;
+		/* Styles for the loader */
+.loader {
+       width: 400px;
+       margin: 0 auto;					/* Center the loader horizontally within its container */
+       border-radius: 10px;
+       border: 4px solid transparent;
+       position: absolute;
+       bottom: 122px;				    
+       left: 50%;						 /* Center the loader horizontally relative to its parent container */
+       transform: translateX(-50%);		/* Move the loader 50% of its width to the left to center it perfectly */
+       padding: 1px;
+       z-index: 1;						 /* Set the stacking order of the loader (z-index) */
+    }
+	
+	/*pseudo-element*/
+<!--.loader:before {
+  content: '';                /* Creates an empty pseudo-element */
+  border: 1px solid #fff;     /* Sets a 1px solid white border */
+  border-radius: 10px;        /* Rounds the corners of the border */
+  position: absolute;         /* Positions the element absolutely */
+  top: -4px;                  /* Places the element 4px above its parent's top edge */
+  right: -4px;                /* Places the element 4px outside its parent's right edge */
+  bottom: -4px;               /* Places the element 4px below its parent's bottom edge */
+  left: -4px;                 /* Places the element 4px outside its parent's left edge */
+}-->
+
+
+	/* Styles for the loader's progress bar */
+.loader .loaderBar {
+  position: absolute;         				/* Positions the element absolutely */
+  border-radius: 10px;       				/* Rounds the corners of the element */
+  top: 0;                    				/* Aligns the top of the element with its parent's top */
+  right: 100%;                				/* Places the element to the extreme right of its parent */
+  bottom: 0;                  				/* Aligns the bottom of the element with its parent's bottom */
+  left: 0;                    				/* Aligns the left of the element with its parent's left */
+  background: #fff;           				/* Sets the background color to white */
+  width: 0;                   				/* Initially sets the width of the element to zero */
+  animation: loadingbar 2s linear infinite; /* Applies the loadingbar animation */
 }
 
+		/* CSS animation for the loader */
 @keyframes loadingbar {
   0% {
     left:0%;
@@ -109,38 +118,62 @@ background:#333;
   }
 }
 
-   body {
-            opacity: 1;
-            transition: opacity 1s ease-in-out; /* Adjust duration and easing as needed */
-        }
-        .hidden {
-            opacity: 0;
+		/* Fade-out effect for the body */
+body {
+    opacity: 1;								/* Sets the initial opacity of the body to fully opaque */
+    transition: opacity 1s ease-in-out; 	/* Adjust duration and easing as needed */
+    }
+	
+	 /* Hidden class for the fade-out effect */
+.hidden {
+      opacity: 0;	/* Sets the opacity to fully transparent when the 'hidden' class is applied */
         }
  </style>
  
- <script>
+<script>
+  // JavaScript code to initiate a fade-out effect and redirection after a delay
+ // This sets a timer that waits for 2000 milliseconds (2 seconds) before executing 
+ //the code inside the function.
+ 
        setTimeout(function() {
-            document.body.classList.add('hidden'); // Add 'hidden' class to fade out the page
+	   
+	   //After the 2-second delay, this line adds the 'hidden' class 
+	   //to the body of the HTML document. This triggers the CSS transition that 
+	   //gradually fades out the entire page due to the CSS rules targeting the .hidden class.
+	   
+            document.body.classList.add('hidden'); 		// Add 'hidden' class to fade out the page
+			
+		//This sets another timer inside the previous function. After the 'hidden' class is
+		//added to the body, it waits for an additional 1000 milliseconds (1 second) before 
+		//executing the code inside this nested function.
+			
             setTimeout(function() {
-                window.location.href = "2.html"; // Replace with your desired URL
-            }, 1000); // Wait for 1 second for the fade-out effect before redirection
-        }, 2000);// Wait for 2 seconds before starting the fade-out effect
+                window.location.href = "2.html"; 		//  redirected URL
+            }, 1000); 									// Wait for 1 second for the fade-out effect before redirection
+        }, 2000);										// Wait for 2 seconds before starting the fade-out effect
     
-    </script>
-	
+</script>
 </head>
+
 <body>
 
-<video autoplay muted loop id="myVideo">
-  <source src="bgvid3.mp4" type="video/mp4">
+ <!-- Background video -->
+	<video autoplay muted loop id="myVideo">
+		<source src="bgvid3.mp4" type="video/mp4"> 	<!-- Video source -->
+	</video>
+
+ <!-- 'Mind Squares' text -->
+	<div class="text"> 
+		<a href = "" class = "mindsq"> 
+			MIND SQUARES 
+		</a> 
+	</div>
  
-</video>
+  <!-- Loader -->
+	<div class="loader">
+	<div class="loaderBar">
+	</div> 	<!-- Loader progress bar -->
+	</div>
 
-
- <div class="text"> <a href = "" class = "mindsq"> MIND SQUARES </a> </div>
-<div class="loader">
-  <div class="loaderBar"></div>
-</div>
-
-	</body>
+</body>
 </html>
