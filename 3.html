@@ -12,14 +12,6 @@ loading page
 	padding: 0;
 	box-sizing: border-box;
 }
-
-body {
-            opacity: 1;
-            transition: opacity 1s ease-in-out; /* Adjust duration and easing as needed */
-        }
-        .hidden {
-            opacity: 0;
-        }
 		
 section{
 	display: flex;
@@ -29,21 +21,23 @@ section{
 	background: #121212;
 
 }
+
+	/*This style defines a circular element. The animate keyframe animates this bowl to create a spinning effect. 
+	It rotates clockwise and counter-clockwise, simulating a rotation.*/
 .bowl{
 	position: relative;
-	
-	
-	
 	width: 300px;
 	height: 300px;
 	background: rgba(255, 255, 255, 0.1);
 	border-radius: 50%;
 	border: 8px solid transparent;
 	animation: animate 5s linear infinite;
-	transform-origin: bottom center;
+	transform-origin: bottom center;	/* Specifies the origin point for the rotation transformation.*/
 	animation-play-state: run;
 }
+
 @keyframes animate{
+/* Rotates the element at different degrees at different keyframes, creating a spinning effect.*/
 	0%{
 		transform: rotate(0deg);
 	}
@@ -57,46 +51,49 @@ section{
 		transform: rotate(-22deg);
 	}
 	100%{
-		filter: hue-rotate(360deg);
+		filter: hue-rotate(360deg);		/*Applies a hue rotation effect to the element, changing the colors continuously as the animation progresses.*/
 	}
 }
+
+/*
+Pseudo-elements in CSS allow you to create virtual elements that don't 
+exist in the HTML structure but can be styled using CSS.*/
 .bowl::before{
-	content: "";
+	content: "";					/* Inserts an empty content into the pseudo-element */
 	position: absolute;
 	top: -15px;
 	left: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-50%);	/* Shifts the pseudo-element 50% of its own width to the left to center it */
 	width: 40%;
 	height: 30px;
 	border: 15px solid #444;
 	border-radius: 50%;
-	box-shadow: 0 10px #222;
-
+	box-shadow: 0 10px #222;		/* Adds a shadow effect to the pseudo-element */
 }
+
 .bowl::after{
 	content: "";
 	position: absolute;
 	top: 35%;
 	left: 50%;
-	transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);					/* Centers the pseudo-element both horizontally and vertically */
 	width: 150px;
 	height: 60px;
 	background: rgba(255, 255, 255, 0.05);
-	transform-origin: center;
+	transform-origin: center;							/* Sets the transformation origin to the center of the pseudo-element */
 	animation: animatebowlshadow 5s linear infinite;
 	border-radius: 50%;
-	animation-play-state: running;
-
+	animation-play-state: running;						/* Specifies the animation state as running */
 }
 
-
+	/*affect their size, positioning, and appearance.*/
 @keyframes animatebowlshadow{
 	0%{
 		left: 50%;
 		width: 150px;
 		height: 60px;
 	}
-25%{
+	25%{
 		left: 55%;
 		width: 140px;
 		height: 65px;
@@ -116,7 +113,9 @@ section{
 	}
 }
 
-
+	/*Positioned within the bowl, it's designed as a liquid content. It rotates, imitating a liquid 
+	movement within the bowl.The animateliquid keyframe defines its rotation in various degrees, creating 
+	a flowing effect.*/
 .liquid{
 	position: absolute;
 	top: 50%;
@@ -126,7 +125,7 @@ section{
 	background: #1ae907;
 	border-bottom-left-radius: 150px;
 	border-bottom-right-radius: 150px;
-	filter: drop-shadow(0 0 80px #1ae907);
+	filter: drop-shadow(0 0 80px #1ae907);			/* This creates a soft, diffuse, green-tinted shadow effect behind the element.*/
 	transform-origin: top center;
 	animation: animateliquid 5s linear infinite;
 	animation-play-state: running;
@@ -154,9 +153,10 @@ section{
 	100%{
 		transform: rotate(0deg);
 	}
-
-
 }
+
+	/*Represents the upper surface of the liquid. It's styled to create a reflective appearance, 
+	using a circular gradient for the liquid's appearance.*/
 .liquid::before{
 	content: "";
 	position: absolute;
@@ -167,6 +167,9 @@ section{
 	border-radius: 50%;
 	filter:drop-shadow(0 0 80px #15be05) ;
 }
+
+	/*Positioned below the bowl, it represents a shadow effect. The animateshadow keyframe animates
+	its size and position,creating a subtle, shifting shadow effect.*/
 .shadow{
 	position: absolute;
 	top: calc(50% + 150px);
@@ -178,8 +181,8 @@ section{
 	border-radius: 50%;
 	animation: animateshadow 5s linear infinite;
 	animation-play-state: running;
-
 }
+
 @keyframes animateshadow{
 	0%{
 		left: 50%;
@@ -216,21 +219,32 @@ section{
 </head>
 
 <body>
+
 <section>
-	<div class="shadow"></div>
-	<div class="bowl">
-		<div class="liquid"></div>
-		
+
+		 <!-- Shadow effect below the bowl -->
+	<div class="shadow">
 	</div>
+	
+		<!-- Bowl element for the liquid animation -->
+	<div class="bowl">
+		<div class="liquid">	<!-- Liquid animation within the bowl -->
+		</div>
+	</div>
+	
 </section>
 
 <script>
-    // Get the URL parameters
+    // Get the URL parameters..(?sudoku=true/?wordsearch=true)
+	//window.location refers to the current URL of the browser window.
+	//.search retrieves the query string part of the URL, including the 
+	//question mark ? and all subsequent parameters.	
     const urlParams = new URLSearchParams(window.location.search);
 
     // Function to redirect based on URL parameters
     function redirect() {
         if (urlParams.has('sudoku')) {
+		
             // Redirect to the Sudoku page after a delay
             setTimeout(function() {
                 window.location.href = "final_sudoku.html";
@@ -238,8 +252,8 @@ section{
         } else if (urlParams.has('wordsearch')) {
             // Redirect to the Word Search page after a delay
             setTimeout(function() {
-                window.location.href = "4(w).html";
-            }, ); // Change the delay time as needed
+                window.location.href = "final_wordsearch.html";
+            },1050 ); // Change the delay time as needed
         } else {
             // If no specific parameter is found, redirect to a default page
             setTimeout(function() {
@@ -249,14 +263,9 @@ section{
     }
 
     // Call the redirect function after a certain time
-    setTimeout(redirect, 1000); // Change the delay time as needed
+    setTimeout(redirect, 100); // Change the delay time as needed	
+	
+</script>
 
-
-	
-	
-	
-	
-    </script>
 </body>
-
 </html>
