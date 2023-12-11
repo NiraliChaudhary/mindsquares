@@ -2,12 +2,20 @@
 	display:none;
 }
 
+body{
+background-image : url('light_img.jpg');
+	 background-repeat : no-repeat;
+	 background-size : 100% 100%;
+	 background-attachment : fixed;	
+	transition: background-image 0.5s ease; 
+}
+
 body.dark{
-	 background-image : url('sudoku_dark.jpg');
+background-image : url('dark_img.jpg');
 	 background-repeat : no-repeat;
 	 background-size : 100% 100%;
 	 background-attachment : fixed;
-	 overflow : hidden;
+	 transition: background-image 0.5s ease; 
 	color:white;
 }
 
@@ -29,6 +37,10 @@ justify-content: center;
  #setup-game>*{
 	 margin-bottom:10px;
 	 padding-left:40px;
+	 padding-right:40px;
+	 display:flex;
+	 align-items:center;
+	 
  }
  
  button{
