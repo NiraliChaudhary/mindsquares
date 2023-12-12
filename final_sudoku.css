@@ -22,13 +22,22 @@ background-image : url('darks.jpg');
 
 header{
 	text-align:center;
-	padding-bottom:10 px;
+	padding-bottom: 10px;
 	border-bottom:1px solid red;
 }
 
 h1{
 	font-size:45pt;
   }
+  
+h2{
+	font-size:30pt;
+  }
+  
+  h3{
+	font-size:20pt;
+  }
+ 
   
  #setup-game{
  display:flex;
@@ -46,6 +55,7 @@ justify-content: center;
  
  button{
 	 justify-self:center;
+	 font-size:25px;
  }
  
  p#timer,p#lives{
