@@ -120,7 +120,7 @@ function generateBoard(board) {//clear previous board
                     if (tile.classList.contains("selected")) {
                         //then remove selection
 tile.classList.remove("selected");
-                        selectekdTile = null;
+                        selectedTile = null;
                     } else {
 //deselect all other tiles
                         for (let i = 0; i < 81; i++) {

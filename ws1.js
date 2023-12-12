@@ -1,28 +1,7 @@
-$(function () {
-  var words = ['save', 'earn', 'invest', 'retirement', 'account', 'money', 'credit', 'debt', 'assets', 'loan', 'interest', 'accrual',
- 'economy', 'sharing', 'savings', 'budget', 'capital', 'collateral', 'bond', 'market', 'value', 'index'];
-  // start a word find game
-  var gamePuzzle = wordfindgame.create(
-    words,
-    '#puzzle',
-    '#words',
-    { height: 8,
-      width:15,
-      fillBlanks: true
-    });
-  $('#solve').click( function() {
-    wordfindgame.solve(gamePuzzle, words);
-  });// create just a puzzle, without filling in the blanks and print to console
-  var puzzle = wordfind.newPuzzle(
-    words,
-    {height: 5, width:15, fillBlanks: true}
-  );
-  wordfind.print(puzzle);
-});
 (function () {
-  'use strict';
+
   var WordFind = function () {// Letters used to fill blank spots in the puzzle
-    var letters = 'abcdefghijklmnoprstuvwy';// The list of all the possible orientations
+    var letters = 'abcdefghijklmnoprstuvwyz';// The list of all the possible orientations
     var allOrientations = ['horizontal','horizontalBack','vertical','verticalUp',
                            'diagonal','diagonalUp','diagonalBack','diagonalUpBack'];
     var orientations = {
@@ -210,29 +189,6 @@ $(function () {
           }
         }
       },
-      solve: function (puzzle, words) {
-        var options = {
-                        height:       puzzle.length,
-                        width:        puzzle[0].length,
-                        orientations: allOrientations,
-                        preferOverlap: true
-                      },
-            found = [],
-            notFound = [];
-        for(var i = 0, len = words.length; i < len; i++) {
-          var word = words[i],
-              locations = findBestLocations(puzzle, options, word);
-
-          if (locations.length > 0 && locations[0].overlap === word.length) {
-            locations[0].word = word;
-            found.push(locations[0]);
-          }
-          else {
-            notFound.push(word);
-          }
-        }
-        return { found: found, notFound: notFound };
-      },
       print: function (puzzle) {
         var puzzleString = '';
         for (var i = 0, height = puzzle.length; i < height; i++) {
@@ -251,10 +207,28 @@ $(function () {
   var root = typeof exports !== "undefined" && exports !== null ? exports : window;
   root.wordfind = WordFind();
 }).call(this);
-
+$(function () {
+  var words = ['buffer', 'compiler','array', 'database', 'apps','emoticon', 'flowchart'];
+  // start a word find game
+  var gamePuzzle = wordfindgame.create(
+    words,
+    '#puzzle',
+    '#words',
+    { height: 8,
+      width:15,
+      fillBlanks: true
+    });
+ 
+  // create just a puzzle, without filling in the blanks and print to console
+  var puzzle = wordfind.newPuzzle(
+    words,
+    {height: 5, width:15, fillBlanks: true}
+  );
+  wordfind.print(puzzle);
+});
 (function (document, $, wordfind) {
 
-  'use strict';
+ 
   var WordFindGame = function() {// List of words for this game
     var wordList;
     var drawPuzzle = function (el, puzzle) {
@@ -431,32 +405,6 @@ $(function () {
 
         return puzzle;
       },
-
-     
-      solve: function(puzzle, words) {
-
-        var solution = wordfind.solve(puzzle, words).found;
-
-        for( var i = 0, len = solution.length; i < len; i++) {
-          var word = solution[i].word,
-              orientation = solution[i].orientation,
-              x = solution[i].x,
-              y = solution[i].y,
-              next = wordfind.orientations[orientation];
-
-          if (!$('.' + word).hasClass('wordFound')) {
-            for (var j = 0, size = word.length; j < size; j++) {
-              var nextPos = next(x, y, j);
-              $('[x="' + nextPos.x + '"][y="' + nextPos.y + '"]').addClass('solved');
-            }
-
-            $('.' + word).addClass('wordFound');
-          }
-        }
-       
-        $('#solve').addClass('gameSolved');
-
-      }
     };
   };
   window.wordfindgame = WordFindGame();
