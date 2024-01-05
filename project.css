@@ -1,6 +1,10 @@
 body {
-  background: #191970;
-}
+background-image : url('ws.jpg');
+	 background-repeat : no-repeat;
+	 background-size : 100% 100%;
+	 background-attachment : fixed;
+	 overflow : hidden;
+     transition: background-image 0.5s ease;}
 
 .puzzleWrap {
   width: 850px;
@@ -30,7 +34,7 @@ p {
   height: 30px;
   width: 30px;
   text-transform: uppercase;
-  background-color:#191970;
+  background-color:#36454F;
   border:0;
   outline: none;
   font:15px arial;
@@ -94,4 +98,25 @@ p {
   &:hover, &.gameSolved {
     opacity: 1;
   }
+}
+
+/* Style for the home button */
+.homeButton {
+  background-color: #36454F;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+   margin-top: 20px; /* Adjust margin top to add space between the words and button */
+  width: fit-content; /* Adjust width as needed */
+  margin-left: 20px; /* Centers the button */
+  margin-right: 20px; /* Centers the button */
+  font-family: Arial, sans-serif;
+}
+
+.homeButton:hover {
+  background-color: #263138;
 }

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
     <title>Word Search</title>
     <style>
         body {
@@ -9,57 +13,66 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            font-family: Arial, sans-serif;
+			font-family: "Trirong", serif;
 			background-image : url('genre_es.jpg');
-	 background-repeat : no-repeat;
-	 background-size : 100% 100%;
-	 background-attachment : fixed;
-	 overflow : hidden;
-     transition: background-image 0.5s ease; 	
+			background-repeat : no-repeat;
+			background-size : 100% 100%;
+			background-attachment : fixed;
+			overflow : hidden;
+			transition: background-image 0.5s ease; 	
         }
+		
+		
         h2 {
-            font-size: 24px;
+            font-size: 28px;
 			color:#D2B48C;/*tan/oak color*/
+			margin-bottom: 30px; /* Increased margin for spacing */
         }
+		
+		
         .buttons-container {
             display: flex;
             flex-direction: column; /* Display buttons in a column */
             align-items: center;
             gap: 15px; /* Increased gap between buttons */
         }
-        button {
-            padding: 20px 40px; /* Adjusted padding for larger buttons */
-            font-size: 20px; /* Increased font size */
+
+
+		.buttons-container a {
+            padding: 20px 40px;
+            font-size: 20px;
             margin: 10px;
-            border: none;
             background-color: #D2B48C;
             color: #8C1717;
-            border-radius: 25px; /* Round the edges */
+            border-radius: 25px;
             cursor: pointer;
-            width: 220px; /* Slightly wider buttons */
-            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth transitions */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+            width: 220px;
+            display: block; /* Ensure the <a> takes the full width */
+            text-decoration: none; /* Remove underline */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center; /* Center text */
         }
-        button:hover {
-            background-color: #855E42; /* Darker color on hover */
-            transform: translateY(-3px); /* Move up slightly on hover */
-            box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); /* Increased shadow on hover */
-        }
-        button a {
-            text-decoration: none;
-            color: #8C1717; /* Match link color with button text color */
+
+
+         .buttons-container a:hover {
+            box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.3);
+            color: #fff;
+            background-color: #855E42;
+            transform: translateY(-3px) scale(1.05);
         }
     </style>
 </head>
 <body>
 
-    <h2><i><u>Select GENRE Level:</u></i></h2>
+    <h2>Select Genre Level</h2>
    
-    <div class="buttons-container">
-        <button type="button"><a href="project.html">SPORTS</a></button>
-        <button type="button"><a href="sitcom.html">ANIMALS</a></button>
-        <button type="button"><a href="country.html">COUNTRIES</a></button>
-        <button type="button"><a href="music.html">MUSIC</a></button>
+     <div class="buttons-container">
+        <!-- Wrap each button within an anchor tag -->
+        <a href="project.html">SPORTS</a>
+        <a href="sitcom.html">ANIMALS</a>
+        <a href="country.html">COUNTRIES</a>
+        <a href="music.html">MUSIC</a>
     </div>
 
 </body>
