@@ -208,7 +208,7 @@
   root.wordfind = WordFind();
 }).call(this);
 $(function () {
-  var words = ['buffer', 'compiler','array', 'database', 'apps','emoticon', 'flowchart'];
+  var words = ['panda', 'dog','zebra', 'giraffe', 'crocodile','lion', 'monkey'];
   // start a word find game
   var gamePuzzle = wordfindgame.create(
     words,
@@ -341,27 +341,35 @@ $(function () {
         }
       }
     };
-    var endTurn = function () {
-      for (var i = 0, len = wordList.length; i < len; i++) {
-       
+    // Define an array of colors
+var colors = ['darkpink', '#6600CC', 'red', '#9966ff', '#00FFFF','magenta','FF6633'];
+
+var endTurn = function () {
+    for (var i = 0, len = wordList.length; i < len; i++) {
+
         if (wordList[i] === curWord) {
-          $('.selected').addClass('found');
-          wordList.splice(i,1);
-          $('.' + curWord).addClass('wordFound');
+            // Pick a color based on the current iteration
+            var colorIndex = i % colors.length;
+            var color = colors[colorIndex];
+
+            $('.selected').addClass('found').css('color', color);
+            wordList.splice(i, 1);
+            $('.' + curWord).addClass('wordFound');
         }
 
         if (wordList.length === 0) {
-          $('.puzzleSquare').addClass('complete');
+            $('.puzzleSquare').addClass('complete');
         }
-      }
+    }
 
-      // reset the turn
-      $('.selected').removeClass('selected');
-      startSquare = null;
-      selectedSquares = [];
-      curWord = '';
-      curOrientation = null;
-    };
+    // reset the turn
+    $('.selected').removeClass('selected');
+    startSquare = null;
+    selectedSquares = [];
+    curWord = '';
+    curOrientation = null;
+};
+
 
     var calcOrientation = function (x1, y1, x2, y2) {
 

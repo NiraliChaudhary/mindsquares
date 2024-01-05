@@ -1,5 +1,5 @@
 body {
-  background: #87CEFA;
+  background: #191970;
 }
 
 .puzzleWrap {
@@ -10,11 +10,11 @@ body {
 p {
   font: 120px arial;
   margin: 20px 20px 0px 45px;
-  color: black;
+  color: white;
 }
 
 #puzzle {
-
+	
   padding: 20px;
   float: left;
   margin: 30px 20px;
@@ -30,34 +30,34 @@ p {
   height: 30px;
   width: 30px;
   text-transform: uppercase;
-  background-color:#FF69B4;
+  background-color:#191970;
   border:0;
   outline: none;
   font:15px arial;
   font-weight:bold ;
-  color: black;
+  color: white;
 }
 
 #puzzle .selected {
-  color:#FDDF8E;
+  color:#4695ED;
   outline: none;
 }
 
-#puzzle .found {
-  color:  #FDDF8E;
-}
+/*#puzzle .found {
+  color:  #ff3300;
+}*/
 
 #puzzle .solved {
-  color: #FDDF8E;
+  color: #ff3300;
 }
 
 #puzzle .complete {
-  background-color: light blue;
+  background-color: #2E8B57;
 }
 
 #words {
   width: 250px;
-  color: black;
+  color: white;
   float: left;
   margin-top: 37px;
 }
@@ -81,16 +81,17 @@ p {
   color: #4695ED;
 }
 
-    #redirectButton {
-    position: absolute;
-    bottom: 10px; /* Adjust this value to set the distance from the bottom */
-    right: 10px; /* Adjust this value to set the distance from the right */
-    display: inline-block;
-    background: transparent;
-    color: orange;
-    padding: 10px 20px;
-    border: 2px solid orange;
-    border-radius: 25px;
-}
+#solve {
+  margin: 30px 30px 0 40px;
+  background: transparent;
+  color: #4695ED;
+  padding: 10px 20px;
+  border: 2px solid #4695ED;
+  border-radius: 25px;
+  opacity: .5;
+  transition: opacity .25s ease-in;
 
+  &:hover, &.gameSolved {
+    opacity: 1;
+  }
 }
