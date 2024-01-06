@@ -341,18 +341,12 @@ $(function () {
         }
       }
     };
-    // Define an array of colors
-var colors = ['darkpink', '#6600CC', 'red', '#9966ff', '#00FFFF','magenta','FF6633'];
+  var highlightColor = 'green'; // Set your desired highlight color
 
 var endTurn = function () {
     for (var i = 0, len = wordList.length; i < len; i++) {
-
         if (wordList[i] === curWord) {
-            // Pick a color based on the current iteration
-            var colorIndex = i % colors.length;
-            var color = colors[colorIndex];
-
-            $('.selected').addClass('found').css('color', color);
+            $('.selected').addClass('found').css('color', highlightColor);
             wordList.splice(i, 1);
             $('.' + curWord).addClass('wordFound');
         }
@@ -367,8 +361,9 @@ var endTurn = function () {
     startSquare = null;
     selectedSquares = [];
     curWord = '';
-    curOrientation = null;
+    curOrientation = null;
 };
+
 
 
     var calcOrientation = function (x1, y1, x2, y2) {

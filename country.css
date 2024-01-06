@@ -7,25 +7,13 @@ background-image : url('ws.jpg');
      transition: background-image 0.5s ease;
 }
 
-/* Styles for highlighting individual squares of the found word */
-.found {
-    background-color: yellow; /* Change this color as desired */
-}
-
-/* Styles for highlighting the entire word */
-.wordFound {
-    font-weight: bold;
-    /* Other styles for the entire word */
-}
-
-
 .puzzleWrap {
   width: 850px;
   margin: 50px auto 0;
 }
 
 p {
-  font: 120px arial;
+  font: 70px Consolas, monospace;
   margin: 20px 20px 0px 45px;
   color: white;
 }
@@ -50,7 +38,7 @@ p {
   background-color:#916f65;
   border:0;
   outline: none;
-  font:15px arial;
+  font:15px Consolas, monospace;
   font-weight:bold ;
   color: white;
 }
@@ -86,7 +74,7 @@ p {
 #words li {
   padding: 0 0 7px;
   text-transform: uppercase;
-  font: 15px arial;
+  font: 15px Consolas, monospace;
   font-weight:bold;
   display: inline-block;
   float: left;
@@ -127,7 +115,7 @@ p {
   width: fit-content; /* Adjust width as needed */
   margin-left: 20px; /* Centers the button */
   margin-right: 20px; /* Centers the button */
-  font-family: Arial, sans-serif;
+  font-family: Consolas, monospace;
 }
 
 .homeButton:hover {
