@@ -7,6 +7,18 @@ background-image : url('ws.jpg');
      transition: background-image 0.5s ease;
 }
 
+/* Styles for highlighting individual squares of the found word */
+.found {
+    background-color: yellow; /* Change this color as desired */
+}
+
+/* Styles for highlighting the entire word */
+.wordFound {
+    font-weight: bold;
+    /* Other styles for the entire word */
+}
+
+
 .puzzleWrap {
   width: 850px;
   margin: 50px auto 0;
