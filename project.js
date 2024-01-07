@@ -341,7 +341,7 @@ $(function () {
         }
       }
     };
-   var highlightColor = 'green'; // Set your desired highlight color
+   var highlightColor = 'magenta'; // Set your desired highlight color
 
 var endTurn = function () {
     for (var i = 0, len = wordList.length; i < len; i++) {

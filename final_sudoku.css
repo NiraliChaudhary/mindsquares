@@ -23,7 +23,7 @@ background-image : url('darks.jpg');
 header{
 	text-align:center;
 	padding-bottom: 10px;
-	border-bottom:1px solid red;
+	border-bottom:1px solid #74431D;
 	font-family:Consolas, monospace;
 		font-size:14pt;
 
@@ -91,7 +91,7 @@ justify-content: center;
  }
  
  .tile{
-	 border:1px solid red;
+	 border:1px solid #74431D;
 	 width:60px;
 	 height:60px;
 	 text-align:center;
@@ -110,11 +110,11 @@ justify-content: center;
  }
  
  .rightBorder{
-	 border-right:4px solid red;
+	 border-right:4px solid #74431D;
 }
 
 .bottomBorder{
-	border-bottom:4px solid red;
+	border-bottom:4px solid #74431D;
 }
 	 
 footer{
