@@ -60,8 +60,7 @@
       if (locations.length === 0) {
         return false;
       } // select a location at random and place the word there
-   
-   var sel = locations[Math.floor(Math.random() * locations.length)];
+      var sel = locations[Math.floor(Math.random() * locations.length)];
       placeWord(puzzle, word, sel.x, sel.y, orientations[sel.orientation]);
 
       return true;
@@ -209,7 +208,7 @@
   root.wordfind = WordFind();
 }).call(this);
 $(function () {
-  var words = ['classical', 'pop','hiphop', 'jazz', 'folk','country', 'rock'];
+  var words = ['buffer', 'compiler','array', 'database', 'apps','emoticon', 'flowchart'];
   // start a word find game
   var gamePuzzle = wordfindgame.create(
     words,
@@ -342,30 +341,27 @@ $(function () {
         }
       }
     };
-  var highlightColor = 'blue+'; // Set your desired highlight color
-
-var endTurn = function () {
-    for (var i = 0, len = wordList.length; i < len; i++) {
+    var endTurn = function () {
+      for (var i = 0, len = wordList.length; i < len; i++) {
+       
         if (wordList[i] === curWord) {
-            $('.selected').addClass('found').css('color', highlightColor);
-            wordList.splice(i, 1);
-            $('.' + curWord).addClass('wordFound');
+          $('.selected').addClass('found');
+          wordList.splice(i,1);
+          $('.' + curWord).addClass('wordFound');
         }
 
         if (wordList.length === 0) {
-            $('.puzzleSquare').addClass('complete');
+          $('.puzzleSquare').addClass('complete');
         }
-    }
+      }
 
-    // reset the turn
-    $('.selected').removeClass('selected');
-    startSquare = null;
-    selectedSquares = [];
-    curWord = '';
-    curOrientation = null;
-};
-
-
+      // reset the turn
+      $('.selected').removeClass('selected');
+      startSquare = null;
+      selectedSquares = [];
+      curWord = '';
+      curOrientation = null;
+    };
 
     var calcOrientation = function (x1, y1, x2, y2) {
 
